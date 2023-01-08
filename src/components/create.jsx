@@ -31,7 +31,9 @@ function Create() {
             <option value="Mario">Mario</option>
             <option value="Yoshi">Yoshi</option>
           </select>
-
+          <button className=' bg-red-500 text-white hover:bg-white hover:text-red-500 rounded border-solid border-2 border-red-500' 
+          
+          > SUBMIT</button>
         </form>
     </div>
   )
