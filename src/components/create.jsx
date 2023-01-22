@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import {  useNavigate } from "react-router-dom";
 
 function Create() {
 
@@ -6,13 +7,18 @@ function Create() {
   const [body , setbody] = useState()
   const [author , setauthor] = useState('Mario')
   const [ispending, setpending] = useState('false')
-
+  const navi = useNavigate();
+  
 
   const handlesubmit = (e)=>{
     e.preventDefault()
+
     const bod ={title, body, author}
+
     console.log(bod)
+
     setpending(true)
+    
     fetch('http://localhost:8000/blogs',{
       method: 'POST',
       headers: {"Content-Type": 'application/json'} ,
@@ -20,6 +26,7 @@ function Create() {
     }).then(()=>{
       console.log('New Blog added')
       setpending(false)
+      navi('/')
     })
 
   }
