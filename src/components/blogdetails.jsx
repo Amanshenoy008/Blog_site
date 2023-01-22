@@ -19,13 +19,11 @@ function Blogdetails() {
 
   return (
     <div>
-        
-       <h1> blogdetails  -{id} </h1>
        {error && <h1>Error...</h1>}
        {isPending && <h1>Loading</h1>}
       { blog &&   
       
-          <div>
+          <div className=' '>
             <h1 className=' '>{blog.title}</h1>
             <p className=' '>{blog.body}</p>
             <button onClick={handleClick} className=' '> Delete</button>
