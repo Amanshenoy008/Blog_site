@@ -4,13 +4,31 @@ function Create() {
 
   const [title , settitle] = useState()
   const [body , setbody] = useState()
-  const [auth , setauth] = useState()
+  const [author , setauthor] = useState('Mario')
+  const [ispending, setpending] = useState('false')
+
+
+  const handlesubmit = (e)=>{
+    e.preventDefault()
+    const bod ={title, body, author}
+    console.log(bod)
+    setpending(true)
+    fetch('http://localhost:8000/blogs',{
+      method: 'POST',
+      headers: {"Content-Type": 'application/json'} ,
+      body: JSON.stringify(bod)
+    }).then(()=>{
+      console.log('New Blog added')
+      setpending(false)
+    })
+
+  }
 
   return (
     <div className=''
     >
         <p className=' text-red-500 text-xl'> Add a new blogs</p>
-        <form className='' >
+        <form className='' onSubmit={handlesubmit} >
           <label className=' '  > Blog title:</label>
           <input type="text" 
           required 
@@ -26,14 +44,18 @@ function Create() {
           ></textarea>
           <label className='pl-4'> Blog Author:</label>
           <select className='border-solid border-2 border-sky-500  ' 
-          value={auth}
-          onChange={(e)=>setauth(e.target.value)}>
+          value={author}
+          onChange={(e)=>setauthor(e.target.value)}>
             <option value="Mario">Mario</option>
             <option value="Yoshi">Yoshi</option>
           </select>
-          <button className=' bg-red-500 text-white hover:bg-white hover:text-red-500 rounded border-solid border-2 border-red-500' 
+          { ispending && <button className=' bg-red-500 text-white hover:bg-white hover:text-red-500 rounded border-solid border-2 border-red-500 ease-in duration-300' 
           
-          > SUBMIT</button>
+          > ADDING...</button>}
+          { !ispending && <button className=' bg-red-500 text-white hover:bg-white hover:text-red-500 rounded border-solid border-2 border-red-500 ease-in duration-300' 
+          
+          > SUBMIT</button>}
+          
         </form>
     </div>
   )
