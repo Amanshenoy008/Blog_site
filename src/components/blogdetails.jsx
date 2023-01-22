@@ -1,5 +1,4 @@
 import { useNavigate, useParams} from 'react-router-dom'
-import { useEffect } from 'react'
 import useFetch from './useFetch'
 
 function Blogdetails() {
@@ -27,9 +26,9 @@ function Blogdetails() {
       { blog &&   
       
           <div>
-            <h1>{blog.title}</h1>
-            <p>{blog.body}</p>
-            <button onClick={handleClick}> Delete</button>
+            <h1 className=' '>{blog.title}</h1>
+            <p className=' '>{blog.body}</p>
+            <button onClick={handleClick} className=' '> Delete</button>
             </div>
       }
         

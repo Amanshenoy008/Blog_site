@@ -1,29 +1,5 @@
 
-
-.btn1{
-
-    border:0;
-    
-
-}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.details{
-    border:1px solid red;
-    font-size: 10px;
-    width:120px;
-    position: relative;
-    left:45vw;
-    margin:10px;
-}
-
-.details:hover{
-    box-shadow: 10px 10px rgb(55, 54, 54);
-}
-*{
-    background-color: white;
-    overflow: hidden;
-    
-}

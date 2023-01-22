@@ -5,9 +5,9 @@ function Create() {
 
   const [title , settitle] = useState()
   const [body , setbody] = useState()
-  const [author , setauthor] = useState('Mario')
+  const [author , setauthor] = useState('')
   const [ispending, setpending] = useState('false')
-  const navi = useNavigate();
+  const navi = useNavigate()
   
 
   const handlesubmit = (e)=>{
@@ -18,7 +18,7 @@ function Create() {
     console.log(bod)
 
     setpending(true)
-    
+
     fetch('http://localhost:8000/blogs',{
       method: 'POST',
       headers: {"Content-Type": 'application/json'} ,
@@ -32,36 +32,33 @@ function Create() {
   }
 
   return (
-    <div className=''
-    >
-        <p className=' text-red-500 text-xl'> Add a new blogs</p>
-        <form className='' onSubmit={handlesubmit} >
-          <label className=' '  > Blog title:</label>
+    <div className=''>
+        <p className=' text-red-600 text-2xl text-center mt-10 mb-2   '> Add a new blogs</p>
+        <form className='flex flex-col gap-y-3' onSubmit={handlesubmit} >
+          <label className=' text-left self-center'  > Blog Title:</label>
           <input type="text" 
           required 
-          className='border-solid border-2 border-sky-500   	'
+          className='border-solid border-2 border-gray-500  self-center 	'
           value={title}
           onChange={(e)=>{settitle(e.target.value)}}
           />
-          <label className='pl-4' > Blog body: </label>
+          <label className='text-left self-center' > Blog Body: </label>
           <textarea name="" id="" cols="30" rows="10" required 
-          className='border-solid border-2 border-sky-500  '
+          className='border-solid border-2 border-gray-500  self-center'
           value={body}
           onChange={(e)=>{setbody(e.target.value)}}
           ></textarea>
-          <label className='pl-4'> Blog Author:</label>
-          <select className='border-solid border-2 border-sky-500  ' 
+          <label className='text-left self-center'>Author:</label>
+          <input className='border-solid border-2 border-gray-500 self-center ' 
           value={author}
-          onChange={(e)=>setauthor(e.target.value)}>
-            <option value="Mario">Mario</option>
-            <option value="Yoshi">Yoshi</option>
-          </select>
-          { ispending && <button className=' bg-red-500 text-white hover:bg-white hover:text-red-500 rounded border-solid border-2 border-red-500 ease-in duration-300' 
-          
-          > ADDING...</button>}
-          { !ispending && <button className=' bg-red-500 text-white hover:bg-white hover:text-red-500 rounded border-solid border-2 border-red-500 ease-in duration-300' 
+          onChange={(e)=>setauthor(e.target.value)} />
+         
+          { ispending && <button className='mt-5 w-2/5 self-center bg-red-500 text-white hover:bg-white hover:text-red-500 rounded border-solid border-2 border-red-500 ease-in duration-300' 
           
           > SUBMIT</button>}
+          { !ispending && <button className='mt-5 w-2/5 bg-red-500 text-white hover:bg-white hover:text-red-500 rounded border-solid border-2 border-red-500 ease-in duration-300' 
+          
+          > Creating...</button>}
           
         </form>
     </div>
