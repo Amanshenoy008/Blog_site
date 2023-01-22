@@ -18,19 +18,19 @@ function Blogdetails() {
   }
 
   return (
-    <div>
+    <>
        {error && <h1>Error...</h1>}
        {isPending && <h1>Loading</h1>}
       { blog &&   
       
-          <div className=' '>
-            <h1 className=' '>{blog.title}</h1>
-            <p className=' '>{blog.body}</p>
-            <button onClick={handleClick} className=' '> Delete</button>
+          <div className=' w-screen h-screen flex flex-col '>
+            <h1 className=' self-center'>{blog.title}</h1>
+            <p className='self-center '>{blog.body}</p>
+            <button onClick={handleClick} className='self-center w-2/5 '> Delete</button>
             </div>
       }
         
-        </div>
+        </>
   )
 }
 
