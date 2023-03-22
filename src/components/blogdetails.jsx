@@ -23,10 +23,10 @@ function Blogdetails() {
        {isPending && <h1>Loading</h1>}
       { blog &&   
       
-          <div className=' w-screen h-screen flex flex-col '>
-            <h1 className=' self-center'>{blog.title}</h1>
-            <p className='self-center '>{blog.body}</p>
-            <button onClick={handleClick} className='self-center w-2/5 '> Delete</button>
+          <div className=' w-screen h-screen flex flex-col justify-center gap-10 '>
+            <h1 className=' self-center'> <span className='text-2xl'>Title: </span>{blog.title}</h1>
+            <p className='self-center '> <span className='text-2xl'>Body: </span>{blog.body}</p>
+            <button onClick={handleClick} className='self-center w-2/5  border-2 border-black bg-red-500'> Delete</button>
             </div>
       }
         
